@@ -118,7 +118,7 @@ class syntax_plugin_html5video_video extends DokuWiki_Syntax_Plugin {
             }
             elseif(count($arr_attr) == 2) {
                 if($arr_attr[0] != $arr_attr[1]) {
-                    $attr = 'loop="loop" autoplay="autoplay"';
+                    $attr = 'autoplay loop muted playsinline';
                 }
                 else {
                     $renderer->doc .= "Error: Duplicate parameters.<br />";
@@ -131,7 +131,7 @@ class syntax_plugin_html5video_video extends DokuWiki_Syntax_Plugin {
             }
         }
 
-        $obj = '<video src="' . $video_url . '" width="' . $width . '" height="' . $height . '" controls="controls" ' . $attr . '></video>';
+        $obj = '<video src="' . $video_url . '" width="' . $width . '" height="' . $height . '" ' . $attr . '></video>';
         if($align != "") {
             $obj = '<div style="width: ' . $width . 'px; ' . $align . '">' . $obj . '</div>';
         }
